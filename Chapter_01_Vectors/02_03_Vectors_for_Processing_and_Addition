@@ -1,0 +1,25 @@
+# Example 1.2: Bouncing ball with PVectors![cite: 9, 10]
+location = None
+velocity = None
+
+def setup():
+    global location, velocity
+    size(200, 200)
+    smooth()
+    location = PVector(100, 100)
+    velocity = PVector(2.5, 5)
+
+def draw():
+    global location, velocity
+    background(255)
+    
+    location.add(velocity)
+
+    if location.x > width or location.x < 0:
+        velocity.x = velocity.x * -1
+    if location.y > height or location.y < 0:
+        velocity.y = velocity.y * -1
+
+    stroke(0)
+    fill(175)
+    ellipse(location.x, location.y, 16, 16)
