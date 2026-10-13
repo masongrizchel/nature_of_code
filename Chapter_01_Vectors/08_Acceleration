@@ -1,0 +1,15 @@
+# Example 1.8 & 1.9: Motion 101 with Acceleration[cite: 27, 28]
+class MoverAccel:
+    def __init__(self):
+        self.location = PVector(width/2, height/2)
+        self.velocity = PVector(0, 0)
+        self.topspeed = 10
+
+    def update(self):
+        # Random acceleration:
+        self.acceleration = PVector.random2D() 
+        self.acceleration.mult(random(2))
+        
+        self.velocity.add(self.acceleration)
+        self.velocity.limit(self.topspeed) # Constrains the magnitude[cite: 26]
+        self.location.add(self.velocity)
